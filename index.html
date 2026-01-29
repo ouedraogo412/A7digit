@@ -4,7 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formations & Services Digital | Expert Marketing</title>
-    <meta name="description" content="Formations et services en marketing digital pour développer votre business en ligne">
+    <meta name="description" content="Formations et services en marketing digital pour développer vos compétences et lancer votre business en ligne">
+     <meta name="author" content="ALY OUEDRAOGO">
+    <meta property="og:title" content="Formations pratiques et Business en Ligne | A7 DIGIT CENTER">
+    <meta property="og:description" content="Formations et services en marketing digital pour développer vos compétences et lancer votre business en ligne, A7 DIGIT CENTER te propose des Formations pratiques 100% en ligne pour te faire demarquer, démarrer et développer ton business en ligne. IA, cybersécurité, Developpement web, Informatique, Bureautique - adaptées au marché africain et international.">
+    <meta property="og:image" content="https://a7-digit-center.netlify.app/image/boutique.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:url" content="https://a7-digit-center.netlify.app/">
+    <meta property="og:site_name" content="A7 DIGIT CENTER">
+    <meta property="og:locale" content="bf_BURKINA FASO">
+    <meta property="og:type" content="website">
     <style>
         * {
             margin: 0;
@@ -409,7 +418,10 @@
     <header>
         <div class="header-container">
             <div class="logo">A7 DIGIT CENTER</div>
-            <a href="#" class="btn btn-header" onclick="openWhatsApp(event)">Discuter sur WhatsApp</a>
+           <!-- <a href="#" class="btn btn-header" onclick="openWhatsApp(event)">Discuter sur WhatsApp</a> -->
+            <a href="#" id="btn-shop-1" class="btn btn-header" target="_blank">
+    Visiter la Boutique 🛍️
+</a>
         </div>
     </header>
 
@@ -417,8 +429,11 @@
     <section class="hero">
         <div class="hero-container">
             <h1>Développez Votre Business Digital et Multipliez Vos Résultats</h1>
-            <p>Pendant que d’autres avancent, tu hésites ? À toi de choisir : rester spectateur ou te former. A7 DIGIT CENTER te propose des formations 100 % en ligne pour démarrer et développer ton business digital : IA, cybersécurité, développement web, informatique, bureautique – adaptées au marché africain et international.</p>
-            <a href="#" class="btn" onclick="openWhatsApp(event)">Discuter Maintenant sur WhatsApp</a>
+            <p>Formations et services en marketing digital pour développer vos compétences et lancer votre business en ligne. A7 DIGIT CENTER te propose des formations 100 % en ligne pour démarrer et développer ton business digital : IA, cybersécurité, développement web, informatique, bureautique – adaptées au marché africain et international.</p>
+           <!-- <a href="#" class="btn" onclick="openWhatsApp(event)">Discuter Maintenant sur WhatsApp</a> -->
+            <a href="#" id="btn-promo-1" class="btn" target="_blank">
+    Voir la Formation du moment 🔥
+</a>
         </div>
     </section>
 
@@ -526,7 +541,10 @@
         <div class="section-container">
             <h2>Prêt à Transformer Votre Vie Professionnelle ?</h2>
             <p>Contactez-moi sur WhatsApp pour discuter de vos objectifs et découvrir comment je peux vous aider</p>
-            <a href="#" class="btn btn-cta" onclick="openWhatsApp(event)">Démarrer la Conversation</a>
+           <!-- <a href="#" class="btn btn-cta" onclick="openWhatsApp(event)">Démarrer la Conversation</a> -->
+            <a href="#" id="btn-promo-2" class="btn btn-cta" target="_blank">
+    Je veux cette Formation 🚀
+</a>
         </div>
     </section>
 
@@ -592,7 +610,10 @@
         <div class="section-container">
             <h2>Commencez Dès Maintenant</h2>
             <p>Envoyez-moi un message sur WhatsApp et recevez toutes les informations dont vous avez besoin</p>
-            <a href="#" class="btn btn-cta" onclick="openWhatsApp(event)">Contactez-moi sur WhatsApp</a>
+            <!-- <a href="#" class="btn btn-cta" onclick="openWhatsApp(event)">Contactez-moi sur WhatsApp</a> -->
+             <a href="#" id="btn-shop-2" class="btn btn-cta" target="_blank">
+    Tout le catalogue
+</a>
         </div>
     </section>
 
@@ -614,6 +635,64 @@
             const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
             window.open(url, '_blank');
         }
+
+
+
+
+
+
+
+
+        /* =========================================
+   ZONE DE CONFIGURATION (Modifie ici !)
+   ========================================= */
+
+// 1. Mets le lien de ta boutique complète ici
+const SHOP_URL = 'https://a7-digit-center.mychariow.shop'; 
+
+// 2. Mets le lien de ta formation du moment ici
+// C'est cette ligne que tu changeras pour promouvoir une autre formation
+const PROMO_URL = 'https://a7-digit-center.mychariow.shop/prd_x6o39i'; 
+
+
+/* =========================================
+   LOGIQUE (Ne pas toucher en général)
+   ========================================= */
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Mise à jour des boutons "Boutique" (Lien 1 et 4)
+    const shopButtons = [
+        document.getElementById('btn-shop-1'),
+        document.getElementById('btn-shop-2')
+    ];
+
+    // Mise à jour des boutons "Formation Spécifique" (Lien 2 et 3)
+    const promoButtons = [
+        document.getElementById('btn-promo-1'),
+        document.getElementById('btn-promo-2')
+    ];
+
+    // Fonction pour appliquer les liens
+    function updateLinks(buttons, url) {
+        buttons.forEach(btn => {
+            if(btn) { // Vérifie que le bouton existe bien dans le HTML
+                btn.href = url;
+            }
+        });
+    }
+
+    // Application des configurations
+    updateLinks(shopButtons, SHOP_URL);
+    updateLinks(promoButtons, PROMO_URL);
+});
+
+
+
+
+
+
+
+
 
         // Fonction pour toggle FAQ
         function toggleFAQ(element) {
